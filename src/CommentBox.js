@@ -7,6 +7,14 @@ class CommentBox extends React.Component{
       '第二条评论'
     ]
   }
+  handleSubmit = (e) =>{
+    e.preventDefault()
+    let newComment = this.commentInput.value
+    //this.commentInput是一个dom节点，.value就是给input标签中添加了value属性
+    this.setState({
+      comments:[...this.state.comments,newComment]
+    })
+  }
   render(){
     return(
       <div className='comment-box'>
@@ -14,8 +22,8 @@ class CommentBox extends React.Component{
           <li key={Math.random()} className='comment'>{item}</li>
           ))
         }
-        <form className='comment-form'>
-          <input type='text' className='input'/>
+        <form className='comment-form' onSubmit={this.handleSubmit}>
+          <input type='text' className='input' ref={value=>this.commentInput=value}/>
           <button type='submit' className='submit-btn'>发表</button>
         </form>
         <div className='underline'></div>
