@@ -3,7 +3,7 @@ import React from 'react'
 class PostBody extends React.Component{
   render(){
     return(
-      <div>
+      <div className='post-body'>
         PostBody
       </div>
     )
