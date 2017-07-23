@@ -1,17 +1,18 @@
 import React from 'react'
+import store from './store'
 
 class CommentBox extends React.Component{
   handleSubmit = (e) =>{
     e.preventDefault()
     let newComment = this.commentInput.value
-    this.props.addComment(newComment)
     this.commentForm.reset()
   }
   render(){
-    console.log(this.props)
+    console.log(store.getState())
+    let comments = store.getState()
     return(
       <div className='comment-box'>
-        {this.props.comments.map(item=>(
+        {comments.map(item=>(
           <li key={Math.random()} className='comment'>{item}</li>
           ))
         }

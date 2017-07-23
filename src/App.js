@@ -4,17 +4,6 @@ import PostBody from './PostBody'
 import CommentBox from './CommentBox'
 
 class App extends React.Component{
-  state = {
-    comments:[
-      '第一条评论',
-      '第二条评论'
-    ]
-  }
-  addComment = (comment) =>{
-    this.setState({
-      comments:[...this.state.comments,comment]
-    })
-  }
   render(){
     return(
       <div>
@@ -22,7 +11,7 @@ class App extends React.Component{
           <PostBody />
         </div>
         <div className='bottom clearfix'>
-          <CommentBox comments={this.state.comments} addComment={this.addComment}/>
+          <CommentBox />
         </div>
       </div>
     )
