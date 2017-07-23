@@ -1,25 +1,17 @@
 import React from 'react'
 
 class CommentBox extends React.Component{
-  state = {
-    comments:[
-      '第一条评论',
-      '第二条评论'
-    ]
-  }
   handleSubmit = (e) =>{
     e.preventDefault()
     let newComment = this.commentInput.value
-    //this.commentInput是一个dom节点，.value就是给input标签中添加了value属性
-    this.setState({
-      comments:[...this.state.comments,newComment]
-    })
+    this.props.addComment(newComment)
     this.commentForm.reset()
   }
   render(){
+    console.log(this.props)
     return(
       <div className='comment-box'>
-        {this.state.comments.map(item=>(
+        {this.props.comments.map(item=>(
           <li key={Math.random()} className='comment'>{item}</li>
           ))
         }
